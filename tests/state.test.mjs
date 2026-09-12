@@ -37,7 +37,7 @@ test('price database stays linked to the BOM and keeps both channels per part',(
  assert.ok(offers.every(o=>ids.has(o.bom)),'кожна пропозиція прив’язана до позиції BOM');
  assert.ok(offers.every(o=>vendorIds.has(o.vendor)),'кожна пропозиція має відомого вендора');
  assert.ok(vendors.every(v=>channelIds.has(v.channel)),'кожен вендор належить каналу');
- assert.ok(offers.every(o=>o.low>0&&o.high>=o.low&&['UAH','USD'].includes(o.unit)),'діапазони додатні та впорядковані');
+ assert.ok(offers.every(o=>['UAH','USD'].includes(o.unit)&&(o.low===null?o.high===null:o.low>0&&o.high>=o.low)),'діапазони додатні та впорядковані або порожні');
  assert.equal(new Set(offers.map(o=>o.bom+'@'+o.vendor)).size,offers.length);
  for(const b of bom){const rows=priceRows(b.id,offers,vendors,{},fxDefault);
   assert.ok(rows.some(r=>r.channel==='ua'),b.id+': потрібна пропозиція з України');
@@ -46,5 +46,23 @@ test('price database stays linked to the BOM and keeps both channels per part',(
 test('vendor search links are absolute and carry the query',()=>{
  assert.ok(searchUrl(vendors.find(v=>v.id==='ali'),'Teensy 4.1').includes('Teensy%204.1'));
  assert.ok(searchUrl(vendors.find(v=>v.id==='imrad'),'Raspberry Pi').includes('imrad.com.ua'));
+ assert.equal(searchUrl(vendors.find(v=>v.id==='olx'),'Raspberry Pi 4'),'https://www.olx.ua/uk/list/q-Raspberry-Pi-4/');
  assert.ok(vendors.every(v=>/^https:\/\//.test(searchUrl(v,'test'))));
+});
+test('search-only sources stay out of the comparison until a price is entered',()=>{
+ const vs=[{id:'shop',channel:'ua'},{id:'ads',channel:'ua',slug:true}];
+ const os=[{bom:'x',vendor:'shop',low:500,high:700,unit:'UAH'},{bom:'x',vendor:'ads',low:null,high:null,unit:'UAH'}];
+ const rows=priceRows('x',os,vs,{},44);
+ assert.equal(rows.find(r=>r.vendor.id==='ads').value,null);
+ assert.equal(channelBest(rows,'ua').vendor.id,'shop');
+ assert.equal(channelTotals(priceTable([{id:'x',qty:1}],os,vs,{},44),'ua').sum,600);
+ const quoted=priceRows('x',os,vs,{'x@ads':300},44);
+ assert.equal(channelBest(quoted,'ua').vendor.id,'ads');// вписана ціна з оголошення вже рахується
+});
+test('OLX is wired to the BOM as a search source with no invented prices',()=>{
+ const ads=offers.filter(o=>o.vendor==='olx');
+ assert.ok(ads.length>0&&ads.every(o=>o.low===null&&o.high===null),'жодного вигаданого діапазону вторинного ринку');
+ assert.ok(ads.every(o=>bom.some(b=>b.id===o.bom)),'кожен рядок OLX прив’язаний до позиції BOM');
+ const table=priceTable(bom,offers,vendors,{},fxDefault);
+ assert.ok(table.every(r=>r.best===null||r.best.vendor.id!=='olx'),'OLX не може стати найкращою пропозицією без ціни');
 });

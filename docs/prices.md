@@ -1,6 +1,6 @@
 # БД цін: Україна ↔ AliExpress
 
-Згенеровано із src/vendors.js і прив’язано до [BOM](bom.md) за id позиції. Діапазони — **орієнтир ринку станом на 2026-09-13**, а не пропозиції продавців і не котирування: вони показують порядок цін і різницю між каналами. Перерахунок за курсом 44 ₴/$ (у вебпосібнику курс редагується). Мито, доставка й комісія платіжної системи не входять у діапазони. Свої підтверджені ціни вводиш у розділі «Ціни та вендори» — вони перекривають орієнтир.
+Згенеровано із src/vendors.js і прив’язано до [BOM](bom.md) за id позиції. Діапазони — **орієнтир ринку станом на 2026-09-13**, а не пропозиції продавців і не котирування: вони показують порядок цін і різницю між каналами. Перерахунок за курсом 44 ₴/$ (у вебпосібнику курс редагується). Мито, доставка й комісія платіжної системи не входять у діапазони. OLX доданий лише як джерело пошуку: у вторинного ринку ціни немає доти, доки ти не відкрив конкретне оголошення, тож ці рядки не беруть участі в порівнянні каналів. Свої підтверджені ціни вводиш у розділі «Ціни та вендори» — вони перекривають орієнтир.
 
 ## Канали постачання
 
@@ -49,6 +49,7 @@
 | Rozetka | UA | 1 800–3 200 | 1800–3200 UAH | [запит](https://rozetka.com.ua/ua/search/?text=Teensy%204.1) |
 | Prom.ua | UA | 1 700–3 200 | 1700–3200 UAH | [запит](https://prom.ua/ua/search?search_term=Teensy%204.1) |
 | AliExpress | ALI | 792–1 408 | 18–32 USD | [запит](https://www.aliexpress.com/wholesale?SearchText=Teensy%204.1%20development%20board) |
+| OLX | UA | лише пошук | за оголошенням | [запит](https://www.olx.ua/uk/list/q-Teensy-4.1/) |
 
 - **PJRC (виробник).** Першоджерело ціни. Доставку й мито в Україну рахуй окремо.
 - **Mouser.** Оригінал із підтвердженим походженням.
@@ -56,6 +57,7 @@
 - **Rozetka.** Маркетплейс: уточни продавця і гарантію.
 - **Prom.ua.** Частина лотів — перепродаж клонів з Ali.
 - **AliExpress.** Єдина позиція, де рекомендація — не економити. ⚠️ Клони Teensy 4.1 поширені й можуть не прийняти офіційний HEX. Економія тут ризикує всім проєктом.
+- **OLX.** Трапляється рідко. Вимагай фото самої плати й перевір, що це оригінал PJRC, а не клон під виглядом б/в.
 
 ### microSD для M8
 
@@ -77,11 +79,13 @@
 | Prom.ua | UA | 90–250 | 90–250 UAH | [запит](https://prom.ua/ua/search?search_term=%D0%BA%D0%B0%D0%B1%D0%B5%D0%BB%D1%8C%20USB%20micro-B%20%D0%B7%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D1%87%D0%B5%D1%8E%20%D0%B4%D0%B0%D0%BD%D0%B8%D1%85) |
 | AliExpress | ALI | 44–176 | 1–4 USD | [запит](https://www.aliexpress.com/wholesale?SearchText=USB%20A%20to%20micro%20B%20data%20cable) |
 | PJRC (виробник) | OEM | 220–396 | 5–9 USD | [запит](https://duckduckgo.com/?q=USB%20micro%20B%20cable%20site%3Apjrc.com) |
+| OLX | UA | лише пошук | за оголошенням | [запит](https://www.olx.ua/uk/list/q-%D0%BA%D0%B0%D0%B1%D0%B5%D0%BB%D1%8C-micro-USB/) |
 
 - **Rozetka.** У картці має бути «синхронізація», не тільки «заряджання».
 - **Prom.ua.** Найдешевші лоти часто charge-only.
 - **AliExpress.** Бери два — один із них цілком може виявитись charge-only.
 - **PJRC (виробник).** Фірмовий кабель, перевірений під Teensy.
+- **OLX.** Сенс має лише в наборі з іншою покупкою.
 
 ### Кардридер microSD
 
@@ -90,10 +94,12 @@
 | Rozetka | UA | 120–350 | 120–350 UAH | [запит](https://rozetka.com.ua/ua/search/?text=%D0%BA%D0%B0%D1%80%D0%B4%D1%80%D0%B8%D0%B4%D0%B5%D1%80%20microSD%20USB) |
 | Prom.ua | UA | 130–350 | 130–350 UAH | [запит](https://prom.ua/ua/search?search_term=card%20reader%20microSD%20USB) |
 | AliExpress | ALI | 44–264 | 1–6 USD | [запит](https://www.aliexpress.com/wholesale?SearchText=USB%203.0%20microSD%20card%20reader) |
+| OLX | UA | лише пошук | за оголошенням | [запит](https://www.olx.ua/uk/list/q-%D0%BA%D0%B0%D1%80%D0%B4%D1%80%D0%B8%D0%B4%D0%B5%D1%80-microSD/) |
 
 - **Rozetka.** Якщо слот уже є в ноутбуку — не купуй.
 - **Prom.ua.** Простого USB 2.0 достатньо для підготовки карт.
 - **AliExpress.** Найбезпечніша позиція для замовлення з Ali.
+- **OLX.** Дрібниця, яку часто віддають разом із ноутбуком чи фотоапаратом.
 
 ### Raspberry Pi 4 Model B
 
@@ -104,12 +110,14 @@
 | Rozetka | UA | 2 800–4 800 | 2800–4800 UAH | [запит](https://rozetka.com.ua/ua/search/?text=Raspberry%20Pi%204%20Model%20B%202GB) |
 | Prom.ua | UA | 2 500–4 500 | 2500–4500 UAH | [запит](https://prom.ua/ua/search?search_term=Raspberry%20Pi%204%20Model%20B) |
 | AliExpress | ALI | 2 420–4 180 | 55–95 USD | [запит](https://www.aliexpress.com/wholesale?SearchText=Raspberry%20Pi%204%20Model%20B%202GB) |
+| OLX | UA | лише пошук | за оголошенням | [запит](https://www.olx.ua/uk/list/q-Raspberry-Pi-4/) |
 
 - **Imrad.** Офіційний канал постачання в Україні.
 - **RCS Components.** Звіряй, чи ціна вказана з ПДВ.
 - **Rozetka.** Часто продають у комплекті з кейсом і БЖ — порівнюй комплект, а не плату.
 - **Prom.ua.** Уточнюй саме обсяг RAM: 2 / 4 / 8 ГБ.
 - **AliExpress.** Економія рідко покриває ризик для базової плати. ⚠️ Сірий імпорт: трапляються б/в плати та «аналоги» на іншому SoC.
+- **OLX.** Найжвавіший вторинний ринок з усього списку. Перевіряй плату під навантаженням до оплати.
 
 ### microSD для Linux
 
@@ -131,11 +139,13 @@
 | Electronoff | UA | 1 100–2 400 | 1100–2400 UAH | [запит](https://duckduckgo.com/?q=%D0%B4%D0%B8%D1%81%D0%BF%D0%BB%D0%B5%D0%B9%203.5%20HDMI%20Raspberry%20Pi%20site%3Aelectronoff.ua) |
 | Prom.ua | UA | 900–2 400 | 900–2400 UAH | [запит](https://prom.ua/ua/search?search_term=HDMI%20%D0%B4%D0%B8%D1%81%D0%BF%D0%BB%D0%B5%D0%B9%203.5%20%D0%B4%D1%8E%D0%B9%D0%BC%D0%B0%20Raspberry%20Pi) |
 | Voron | UA | 1 000–2 300 | 1000–2300 UAH | [запит](https://duckduckgo.com/?q=HDMI%20LCD%20module%203.5%20site%3Avoron.ua) |
+| OLX | UA | лише пошук | за оголошенням | [запит](https://www.olx.ua/uk/list/q-HDMI-%D0%B4%D0%B8%D1%81%D0%BF%D0%BB%D0%B5%D0%B9-3.5/) |
 
 - **AliExpress.** Основний ринок таких модулів. Перевір, що це HDMI, а не SPI — SPI для m8c не підходить.
 - **Electronoff.** Швидка доставка й можливість повернути, якщо не збіжиться виріз.
 - **Prom.ua.** Перепродаж Ali з націнкою; часто без креслення розмірів.
 - **Voron.** Наявність під питанням — уточнюй перед замовленням.
+- **OLX.** Часто продають разом із набором для Pi. Питай точні габарити й тип роз’єму.
 
 ### micro-HDMI → HDMI
 
@@ -144,10 +154,12 @@
 | Rozetka | UA | 150–420 | 150–420 UAH | [запит](https://rozetka.com.ua/ua/search/?text=%D0%BA%D0%B0%D0%B1%D0%B5%D0%BB%D1%8C%20micro-HDMI%20HDMI%200.5%D0%BC) |
 | Prom.ua | UA | 120–350 | 120–350 UAH | [запит](https://prom.ua/ua/search?search_term=micro%20HDMI%20to%20HDMI%20%D0%BA%D0%B0%D0%B1%D0%B5%D0%BB%D1%8C%20%D0%BA%D0%BE%D1%80%D0%BE%D1%82%D0%BA%D0%B8%D0%B9) |
 | AliExpress | ALI | 88–308 | 2–7 USD | [запит](https://www.aliexpress.com/wholesale?SearchText=micro%20HDMI%20to%20HDMI%20short%20cable%2020cm) |
+| OLX | UA | лише пошук | за оголошенням | [запит](https://www.olx.ua/uk/list/q-%D0%BA%D0%B0%D0%B1%D0%B5%D0%BB%D1%8C-micro-HDMI/) |
 
 - **Rozetka.** Саме micro-HDMI. Mini-HDMI у Pi 4 не входить.
 - **Prom.ua.** Для корпуса шукай кутовий штекер.
 - **AliExpress.** Тут вибір коротких і кутових варіантів найширший.
+- **OLX.** Дивись на довжину й напрямок штекера на фото.
 
 ### USB-аудіо з виходом 3,5 мм
 
@@ -156,10 +168,12 @@
 | AliExpress | ALI | 132–616 | 3–14 USD | [запит](https://www.aliexpress.com/wholesale?SearchText=USB%20sound%20card%203.5mm%20headphone%20adapter) |
 | Rozetka | UA | 300–800 | 300–800 UAH | [запит](https://rozetka.com.ua/ua/search/?text=USB%20%D0%B7%D0%B2%D1%83%D0%BA%D0%BE%D0%B2%D0%B0%20%D0%BA%D0%B0%D1%80%D1%82%D0%B0%203.5%20%D0%BC%D0%BC) |
 | Prom.ua | UA | 250–750 | 250–750 UAH | [запит](https://prom.ua/ua/search?search_term=USB%20%D0%B0%D1%83%D0%B4%D1%96%D0%BE%20%D0%B0%D0%B4%D0%B0%D0%BF%D1%82%D0%B5%D1%80%203.5%20jack) |
+| OLX | UA | лише пошук | за оголошенням | [запит](https://www.olx.ua/uk/list/q-USB-%D0%B7%D0%B2%D1%83%D0%BA%D0%BE%D0%B2%D0%B0-%D0%BA%D0%B0%D1%80%D1%82%D0%B0/) |
 
 - **AliExpress.** HS-100B та аналоги. Бери два різні — перевіриш, який не шумить.
 - **Rozetka.** Можна повернути, якщо шумить на батарейному живленні.
 - **Prom.ua.** Чип в описі часто не відповідає реальному.
+- **OLX.** Перевір на місці, чи не шумить у навушниках.
 
 ### Низькопрофільні перемикачі
 
@@ -168,10 +182,12 @@
 | AliExpress | ALI | 22–62 | 0.5–1.4 USD | [запит](https://www.aliexpress.com/wholesale?SearchText=Kailh%20Choc%20low%20profile%20switch%20PG1350) |
 | Prom.ua | UA | 45–110 | 45–110 UAH | [запит](https://prom.ua/ua/search?search_term=Kailh%20Choc%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BC%D0%B8%D0%BA%D0%B0%D1%87%20%D0%BD%D0%B8%D0%B7%D1%8C%D0%BA%D0%BE%D0%BF%D1%80%D0%BE%D1%84%D1%96%D0%BB%D1%8C%D0%BD%D0%B8%D0%B9) |
 | Electronoff | UA | 25–90 | 25–90 UAH | [запит](https://duckduckgo.com/?q=%D1%82%D0%B0%D0%BA%D1%82%D0%BE%D0%B2%D0%B0%20%D0%BA%D0%BD%D0%BE%D0%BF%D0%BA%D0%B0%20%D0%BD%D0%B8%D0%B7%D1%8C%D0%BA%D0%BE%D0%BF%D1%80%D0%BE%D1%84%D1%96%D0%BB%D1%8C%D0%BD%D0%B0%20site%3Aelectronoff.ua) |
+| OLX | UA | лише пошук | за оголошенням | [запит](https://www.olx.ua/uk/list/q-%D0%BF%D0%B5%D1%80%D0%B5%D0%BC%D0%B8%D0%BA%D0%B0%D1%87%D1%96-Kailh-Choc/) |
 
 - **AliExpress.** Ціна за один перемикач. Лоти від 10 шт — бери з запасом на брак.
 - **Prom.ua.** Ціна за один перемикач; вибір варіантів вужчий.
 - **Electronoff.** Choc може не бути — переглянь альтернативні тактові кнопки під свій футпринт.
+- **OLX.** Клавіатурники розпродають залишки після збірок — там і пробні комплекти.
 
 ### Ковпачки для Choc
 
@@ -190,10 +206,12 @@
 | AliExpress | ALI | 264–968 | 6–22 USD | [запит](https://www.aliexpress.com/wholesale?SearchText=programmable%20macro%20keypad%20USB%209%20keys) |
 | Electronoff | UA | 600–1 600 | 600–1600 UAH | [запит](https://duckduckgo.com/?q=%D0%BC%D0%B0%D0%BA%D1%80%D0%BE%D0%BA%D0%BB%D0%B0%D0%B2%D1%96%D0%B0%D1%82%D1%83%D1%80%D0%B0%20USB%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BE%D0%B2%D0%B0%D0%BD%D0%B0%20site%3Aelectronoff.ua) |
 | Prom.ua | UA | 500–1 500 | 500–1500 UAH | [запит](https://prom.ua/ua/search?search_term=USB%20%D0%BC%D0%B0%D0%BA%D1%80%D0%BE%D0%BA%D0%BB%D0%B0%D0%B2%D1%96%D0%B0%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BE%D0%B2%D0%B0%D0%BD%D0%B0) |
+| OLX | UA | лише пошук | за оголошенням | [запит](https://www.olx.ua/uk/list/q-%D0%BC%D0%B0%D0%BA%D1%80%D0%BE%D0%BA%D0%BB%D0%B0%D0%B2%D1%96%D0%B0%D1%82%D1%83%D1%80%D0%B0/) |
 
 - **AliExpress.** Обов’язково перевір rollover: M8 потребує одночасних натискань.
 - **Electronoff.** Альтернатива — плата на RP2040 і власна прошивка.
 - **Prom.ua.** Rollover в описі майже ніколи не вказують — питай продавця.
+- **OLX.** Питай, чи перепрошивається і скільки клавіш тримає одночасно.
 
 ### Живлення Pi 4
 
@@ -203,11 +221,13 @@
 | Rozetka | UA | 350–900 | 350–900 UAH | [запит](https://rozetka.com.ua/ua/search/?text=%D0%B1%D0%BB%D0%BE%D0%BA%20%D0%B6%D0%B8%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F%20USB-C%205V%203A) |
 | Prom.ua | UA | 300–850 | 300–850 UAH | [запит](https://prom.ua/ua/search?search_term=%D0%B1%D0%BB%D0%BE%D0%BA%20%D0%B6%D0%B8%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F%205V%203A%20USB-C) |
 | AliExpress | ALI | 264–704 | 6–16 USD | [запит](https://www.aliexpress.com/wholesale?SearchText=5V%203A%20USB-C%20power%20adapter%20EU%20plug) |
+| OLX | UA | лише пошук | за оголошенням | [запит](https://www.olx.ua/uk/list/q-%D0%B1%D0%BB%D0%BE%D0%BA-%D0%B6%D0%B8%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F-5V-3A/) |
 
 - **Imrad.** Офіційний БЖ — найменше проблем із просадками напруги.
 - **Rozetka.** Потрібні саме 5,1 В / 3 А, а не «швидка зарядка» на 9 В.
 - **Prom.ua.** Дешеві БЖ часто не тримають заявлений струм.
 - **AliExpress.** Якщо берешся — лише сертифікований бренд. ⚠️ Найгірша категорія для економії: слабка ізоляція мережевої частини — це ризик для тебе, не для плати.
+- **OLX.** Тільки оригінальний брендовий БЖ і тільки з перевіркою — вживана мережева частина це ризик.
 
 ### Монтаж і корпус
 
@@ -217,11 +237,13 @@
 | Космодром | UA | 150–500 | 150–500 UAH | [запит](https://duckduckgo.com/?q=%D1%81%D1%82%D1%96%D0%B9%D0%BA%D0%B8%20%D0%BB%D0%B0%D1%82%D1%83%D0%BD%D0%BD%D1%96%20M3%20%D0%BD%D0%B0%D0%B1%D1%96%D1%80%20%D0%B3%D0%B2%D0%B8%D0%BD%D1%82%D0%B8%20site%3Akosmodrom.ua) |
 | Prom.ua | UA | 120–450 | 120–450 UAH | [запит](https://prom.ua/ua/search?search_term=%D0%BD%D0%B0%D0%B1%D1%96%D1%80%20%D0%B3%D0%B2%D0%B8%D0%BD%D1%82%D1%96%D0%B2%20%D1%81%D1%82%D1%96%D0%B9%D0%BE%D0%BA%20M3%20M2.5) |
 | AliExpress | ALI | 176–616 | 4–14 USD | [запит](https://www.aliexpress.com/wholesale?SearchText=M2.5%20M3%20standoff%20screw%20kit) |
+| OLX | UA | лише пошук | за оголошенням | [запит](https://www.olx.ua/uk/list/q-PETG-%D1%84%D1%96%D0%BB%D0%B0%D0%BC%D0%B5%D0%BD%D1%82/) |
 
 - **Plexiwire.** Ціна за котушку 1 кг. На корпус іде значно менше — решта лишиться на ітерації.
 - **Космодром.** Набір М2,5/М3 зі стійками закриває монтаж Pi і плат.
 - **Prom.ua.** Бери набором — поштучно виходить дорожче.
 - **AliExpress.** Набори на сотні елементів — одна з найвигідніших позицій на Ali.
+- **OLX.** Котушки після проєктів віддають дешево; перевір, що пластик сухий і не крихкий.
 
 ### Захищений акумулятор
 
@@ -242,10 +264,12 @@
 | AliExpress | ALI | 352–1 232 | 8–28 USD | [запит](https://www.aliexpress.com/wholesale?SearchText=UPS%20power%20module%205V%20boost%20charging%20power%20path) |
 | Prom.ua | UA | 550–1 600 | 550–1600 UAH | [запит](https://prom.ua/ua/search?search_term=%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8C%20UPS%205V%20%D0%B1%D0%B5%D0%B7%D0%BF%D0%B5%D1%80%D0%B5%D0%B1%D1%96%D0%B9%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B6%D0%B8%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F%20Raspberry) |
 | Electronoff | UA | 600–1 700 | 600–1700 UAH | [запит](https://duckduckgo.com/?q=%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8C%20%D0%B6%D0%B8%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F%20UPS%205V%20Raspberry%20Pi%20site%3Aelectronoff.ua) |
+| OLX | UA | лише пошук | за оголошенням | [запит](https://www.olx.ua/uk/list/q-%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8C-UPS-5V/) |
 
 - **AliExpress.** UPSPACK V3 та аналоги. TP4056 окремо цю задачу не закриває.
 - **Prom.ua.** Перевіряй заявлений безперервний струм із запасом, а не піковий.
 - **Electronoff.** Швидка заміна, якщо модуль не витягне навантаження.
+- **OLX.** Питай реальний струм під навантаженням, а не цифру з опису.
 
 ## Вендори
 
@@ -254,6 +278,7 @@
 | [AliExpress](https://www.aliexpress.com/) | ALI | 14–45 днів | Часто «безкоштовно» — вартість уже закладена в ціну лоту | Перевір чинний безмитний поріг на посилку перед замовленням | Дисплеї, Choc-перемикачі, ковпачки, USB-аудіо, макроплати, модулі живлення |
 | [Rozetka](https://rozetka.com.ua/) | UA | 1–3 дні | Нова пошта / кур’єр, часто безкоштовно від суми | Немає | microSD, кабелі, кардридери, блоки живлення, акумулятори |
 | [Prom.ua](https://prom.ua/) | UA | 1–5 днів | Нова пошта, часто накладений платіж | Немає | Дрібні модулі, перемикачі, кріплення, дисплеї |
+| [OLX](https://www.olx.ua/) | UA | 1–5 днів · залежить від продавця | Нова пошта, передоплата або накладений платіж | Немає | Вживані Raspberry Pi, дисплеї, макроплати, блоки живлення — там, де вторинний ринок живий |
 | [Imrad](https://imrad.com.ua/) | UA | 1–4 дні | Самовивіз Київ / Нова пошта | Немає | Raspberry Pi, оригінальні блоки живлення, компоненти з документацією |
 | [RCS Components](https://rcscomponents.kiev.ua/) | UA | 1–5 днів | Нова пошта | Немає | Raspberry Pi та аксесуари, пасивні компоненти, роз’єми |
 | [Космодром](https://kosmodrom.ua/) | UA | 1–4 дні | Нова пошта / самовивіз | Немає | Радіодеталі, роз’єми, монтажні матеріали, інструмент |
@@ -266,6 +291,7 @@
 - **AliExpress — на що дивитись.** Клони Teensy, підроблені microSD, завищена ємність акумуляторів. Дивись відгуки з фото, відкривай спір до закриття захисту покупця.
 - **Rozetka — на що дивитись.** Маркетплейс: продавці різні. Перевіряй, хто фактичний відправник і чи є гарантійний талон.
 - **Prom.ua — на що дивитись.** Багато позицій — той самий товар з AliExpress із націнкою в кілька разів. Порівнюй із колонкою ALI перед покупкою.
+- **OLX — на що дивитись.** Оголошення, а не магазин: ціни в БД немає, гарантії немає, повернення немає. Плати через захищену угоду й перевіряй пристрій до оплати. Карти пам’яті, ковпачки та акумулятори звідси не беремо: зношений флеш і елементи без історії не варті економії.
 - **Imrad — на що дивитись.** Асортимент орієнтований на юросіб; наявність конкретного SKU перевіряй до оплати.
 - **RCS Components — на що дивитись.** Ціна в картці може бути без ПДВ — звіряй підсумок у кошику.
 - **Космодром — на що дивитись.** Готові DIY-модулі вибірково; специфічні дисплеї шукай в іншому місці.

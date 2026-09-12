@@ -23,6 +23,10 @@ export const vendors=[
   lead:'1–5 днів',ship:'Нова пошта, часто накладений платіж',duty:'Немає',
   strong:'Дрібні модулі, перемикачі, кріплення, дисплеї',
   risk:'Багато позицій — той самий товар з AliExpress із націнкою в кілька разів. Порівнюй із колонкою ALI перед покупкою.'},
+ {id:'olx',name:'OLX',channel:'ua',site:'olx.ua',url:'https://www.olx.ua/',currency:'UAH',search:'https://www.olx.ua/uk/list/q-{q}/',slug:true,
+  lead:'1–5 днів · залежить від продавця',ship:'Нова пошта, передоплата або накладений платіж',duty:'Немає',
+  strong:'Вживані Raspberry Pi, дисплеї, макроплати, блоки живлення — там, де вторинний ринок живий',
+  risk:'Оголошення, а не магазин: ціни в БД немає, гарантії немає, повернення немає. Плати через захищену угоду й перевіряй пристрій до оплати. Карти пам’яті, ковпачки та акумулятори звідси не беремо: зношений флеш і елементи без історії не варті економії.'},
  {id:'imrad',name:'Imrad',channel:'ua',site:'imrad.com.ua',url:'https://imrad.com.ua/',currency:'UAH',search:null,
   lead:'1–4 дні',ship:'Самовивіз Київ / Нова пошта',duty:'Немає',
   strong:'Raspberry Pi, оригінальні блоки живлення, компоненти з документацією',
@@ -59,12 +63,14 @@ export const vendors=[
 
 export const vendorById=id=>vendors.find(v=>v.id===id);
 export const channelById=id=>channels.find(c=>c.id===id);
+// slug — магазини, де запит іде частиною шляху, а не параметром (OLX).
 export const searchUrl=(vendor,query)=>vendor.search
- ? vendor.search.replaceAll('{q}',encodeURIComponent(query))
+ ? vendor.search.replaceAll('{q}',encodeURIComponent(vendor.slug?query.replaceAll(' ','-'):query))
  : `https://duckduckgo.com/?q=${encodeURIComponent(query+' site:'+vendor.site)}`;
 
 // bom — id позиції з src/data.js. low/high — ціна за ОДИНИЦЮ у валюті unit.
 // status:'орієнтир' = діапазон ринку без звірки з продавцем. warn — ризик, який не покривається ціною.
+// low:null = джерело лише для пошуку (OLX): ціну дає конкретне оголошення, тож у порівнянні каналів воно не бере участі.
 export const offers=[
  {bom:'teensy',vendor:'pjrc',q:'Teensy 4.1',low:35,high:42,unit:'USD',status:'орієнтир',note:'Першоджерело ціни. Доставку й мито в Україну рахуй окремо.'},
  {bom:'teensy',vendor:'mouser',q:'Teensy 4.1 PJRC',low:38,high:50,unit:'USD',status:'орієнтир',note:'Оригінал із підтвердженим походженням.'},
@@ -137,4 +143,18 @@ export const offers=[
  {bom:'powerpath',vendor:'ali',q:'UPS power module 5V boost charging power path',low:8,high:28,unit:'USD',status:'орієнтир',note:'UPSPACK V3 та аналоги. TP4056 окремо цю задачу не закриває.'},
  {bom:'powerpath',vendor:'prom',q:'модуль UPS 5V безперебійного живлення Raspberry',low:550,high:1600,unit:'UAH',status:'орієнтир',note:'Перевіряй заявлений безперервний струм із запасом, а не піковий.'},
  {bom:'powerpath',vendor:'electronoff',q:'модуль живлення UPS 5V Raspberry Pi',low:600,high:1700,unit:'UAH',status:'орієнтир',note:'Швидка заміна, якщо модуль не витягне навантаження.'},
+
+ // OLX додано лише як джерело пошуку: ціну підставляє конкретне оголошення.
+ {bom:'teensy',vendor:'olx',q:'Teensy 4.1',low:null,high:null,unit:'UAH',status:'лише пошук',note:'Трапляється рідко. Вимагай фото самої плати й перевір, що це оригінал PJRC, а не клон під виглядом б/в.'},
+ {bom:'usb',vendor:'olx',q:'кабель micro USB',low:null,high:null,unit:'UAH',status:'лише пошук',note:'Сенс має лише в наборі з іншою покупкою.'},
+ {bom:'reader',vendor:'olx',q:'кардридер microSD',low:null,high:null,unit:'UAH',status:'лише пошук',note:'Дрібниця, яку часто віддають разом із ноутбуком чи фотоапаратом.'},
+ {bom:'pi4',vendor:'olx',q:'Raspberry Pi 4',low:null,high:null,unit:'UAH',status:'лише пошук',note:'Найжвавіший вторинний ринок з усього списку. Перевіряй плату під навантаженням до оплати.'},
+ {bom:'display',vendor:'olx',q:'HDMI дисплей 3.5',low:null,high:null,unit:'UAH',status:'лише пошук',note:'Часто продають разом із набором для Pi. Питай точні габарити й тип роз’єму.'},
+ {bom:'hdmi',vendor:'olx',q:'кабель micro HDMI',low:null,high:null,unit:'UAH',status:'лише пошук',note:'Дивись на довжину й напрямок штекера на фото.'},
+ {bom:'audio',vendor:'olx',q:'USB звукова карта',low:null,high:null,unit:'UAH',status:'лише пошук',note:'Перевір на місці, чи не шумить у навушниках.'},
+ {bom:'keys',vendor:'olx',q:'перемикачі Kailh Choc',low:null,high:null,unit:'UAH',status:'лише пошук',note:'Клавіатурники розпродають залишки після збірок — там і пробні комплекти.'},
+ {bom:'input',vendor:'olx',q:'макроклавіатура',low:null,high:null,unit:'UAH',status:'лише пошук',note:'Питай, чи перепрошивається і скільки клавіш тримає одночасно.'},
+ {bom:'supply',vendor:'olx',q:'блок живлення 5V 3A',low:null,high:null,unit:'UAH',status:'лише пошук',note:'Тільки оригінальний брендовий БЖ і тільки з перевіркою — вживана мережева частина це ризик.'},
+ {bom:'hardware',vendor:'olx',q:'PETG філамент',low:null,high:null,unit:'UAH',status:'лише пошук',note:'Котушки після проєктів віддають дешево; перевір, що пластик сухий і не крихкий.'},
+ {bom:'powerpath',vendor:'olx',q:'модуль UPS 5V',low:null,high:null,unit:'UAH',status:'лише пошук',note:'Питай реальний струм під навантаженням, а не цифру з опису.'},
 ];
