@@ -1,0 +1,68 @@
+{
+  "reviewed": "2026-09-13",
+  "sources": [
+    {
+      "id": "rpi4",
+      "name": "RowdyVoyeur / m8c-rpi4",
+      "role": "Апаратний референс · Raspberry Pi 4",
+      "url": "https://github.com/RowdyVoyeur/m8c-rpi4",
+      "sha": "485fa059eee136602aa6884209991c8709367a1c",
+      "status": "Референс",
+      "note": "Pi 4, HDMI, USB-аудіо. Його Patchbox/SDL2-конфігурація не переноситься в наш SDL3-клієнт. Корпус автора — LEGO; готового CAD під Model:02 немає."
+    },
+    {
+      "id": "m8c",
+      "name": "laamaa / m8c",
+      "role": "Основний клієнт · клоновано в upstream/m8c",
+      "url": "https://github.com/laamaa/m8c/releases/tag/v2.2.3",
+      "sha": "dbf61664f46c73c66552ace2ef71e8311d743125",
+      "status": "v2.2.3 · обрано",
+      "note": "Обрано користувачем. Оригінальний репозиторій підключений git submodule; source зафіксовано на v2.2.3. Залежності: SDL3 і libserialport."
+    },
+    {
+      "id": "fw",
+      "name": "Dirtywave / M8HeadlessFirmware",
+      "role": "Офіційна прошивка Teensy 4.1",
+      "url": "https://github.com/Dirtywave/M8HeadlessFirmware",
+      "sha": "e36808818bbd3c2530c2bb4bf3a1bd247ae7a0b4",
+      "status": "Binary upstream",
+      "note": "Для стартової перевірки зафіксовано M8_V4_0_2_HEADLESS.hex. Сумісність усього комплекту потребує фізичного тесту. Binary не включено в цей репозиторій."
+    },
+    {
+      "id": "docs",
+      "name": "Dirtywave / M8Docs",
+      "role": "Прошивання та справжні скріншоти",
+      "url": "https://github.com/Dirtywave/M8Docs",
+      "sha": "3886b348bc1b97818b25fa7348fc6a27775afc90",
+      "status": "GPL-2.0",
+      "note": "Скріншоти взято без змін із офіційної документації. Вони показують історичний TouchDesigner, а не сучасний m8c."
+    },
+    {
+      "id": "staging",
+      "name": "M8HeadlessStaging",
+      "role": "Альтернативна збірка · Pi 3 B+",
+      "url": "https://github.com/ijnekenamay/M8HeadlessStaging",
+      "sha": "45a7133d8e1546fc23d16763972159f3bd230786",
+      "status": "Не обрано",
+      "note": "Перелік деталей і фотографії є; KiCad автор не опублікував. Недостатньо для повторення PCB."
+    },
+    {
+      "id": "piboy",
+      "name": "rasprague / m8c-piboy",
+      "role": "Альтернатива · PiBoy",
+      "url": "https://github.com/rasprague/m8c-piboy",
+      "sha": "1d4807d8e07bbb3a5d9d634ddef9f5e1328297d1",
+      "status": "Не обрано",
+      "note": "Готовий портативний host, але формфактор не відповідає обраному вигляду Model:02."
+    },
+    {
+      "id": "zero",
+      "name": "rheslip / M8-Headless",
+      "role": "Досліджено · виключено користувачем",
+      "url": "https://github.com/rheslip/M8-Headless",
+      "sha": "6d263a1eb12796dc4c50bdd085e475ecffa19d17",
+      "status": "Архів дослідження",
+      "note": "Zero 2 W вилучено з активної архітектури. Є SCAD/STL у Enclosure, але немає загальної ліцензії; файли не копіюємо. Автор повідомляє про несумісність прямого DAC з FW 4.0."
+    }
+  ]
+}
