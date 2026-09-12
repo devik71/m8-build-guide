@@ -5,3 +5,7 @@ playwright-report/
 .local/
 *.log
 .env*
+
+.vercel
+
+.vercel
